@@ -1,10 +1,11 @@
+require('dotenv').config();
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 
 const paymentController = async(req,res)=>{
     const {products} = req.body;
     realProducts = products.cart;
-    // console.log(products);
+    console.log(products);
 
 
     const lineItems = realProducts.map((product)=>({
@@ -12,7 +13,7 @@ const paymentController = async(req,res)=>{
             currency:"inr",
             product_data:{
                 name:product.name,
-                images:[product.image]
+                images:["https://www.wscubetech.com/images/wscube-tech-logo.svg"]
             },
             unit_amount:product.amount * 100,
         },

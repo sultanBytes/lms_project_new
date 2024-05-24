@@ -72,26 +72,27 @@ function Courses() {
     // const carts = [];
 
     const productsPro = JSON.parse(e.target.value);
-    productsPro['courseImage'] = courseImgUrl + productsPro['courseImage'];
-    // console.log(productsPro)
+   
 
     const carts = [
       {
         id:productsPro._id,
-        name: productsPro.courseName,
-        image: productsPro.courseImage,
-        amount:Number(productsPro.coursePrice),
+        name: productsPro.coursename,
+        image: productsPro.courseimage,
+        amount:Number(productsPro.courseprice),
         qunt:1
       }
     ];
 
+    // console.log(carts)
+
     const finalDataToSend = {
       cart : carts,
       user : {
-        username: 'John',
-        lastname: 'wick',
+        username: 'Sultan',
+        lastname: 'Khan',
         userid: '01',
-        usermail: 'john@test.com',
+        usermail: 'sultan@testapimail.com',
         usermobilenumber: '1234567890' 
       }
     };
