@@ -23,9 +23,9 @@ Create a .env file in the root directory Server folder of your project and add t
 
 PORT=
 
-DB_USER=
-DB_PASSWORD=
-DB_APP_NAME=
+DB_USER= <br>
+DB_PASSWORD=<br>
+DB_APP_NAME=<br>
 
 ADMIN_EMAIL=
 ADMIN_APP_PASSWORD_GMAIL=
