@@ -14,19 +14,21 @@ function Courses() {
 
   const nav = useNavigate();
 
-  const YOUR_PUBLISHABLE_KEY = "pk_test_51LiyTNSH4QsKt7gApjEgxNySurOKQbOlLuc0XxwsqJek8ItuUyPQLIwIThhZ7Q4Ut7dYzWkrlg15v5kgV2opUJF6002wEvois3";
 
-  const stripePromise = loadStripe(YOUR_PUBLISHABLE_KEY);
 
-  let [catelog , setcatelog] = useState('')
-  let [search,setsearch]=useState('')
-  let [faq,setFaq]= useState(false)
+  let [catelog , setcatelog] = useState('');
+  let [search,setsearch]=useState('');
+  let [faq,setFaq]= useState(false);
   let [finalCourse,setfinalCourse]=useState([])
-  let [courseImgUrl,setcourseImgUrl]=useState('')
+  let [courseImgUrl,setcourseImgUrl]=useState('');
+  let [userId, setUserId] = useState('');
 
   const checkLogin = ()=>{
     let userData = Cookies.get('user');
-    console.log(userData);
+    
+    let userObject = JSON.parse(userData);
+
+    setUserId(userObject.data[0]._id);
 
     if(!userData){
       nav('/login');
@@ -89,11 +91,7 @@ function Courses() {
     const finalDataToSend = {
       cart : carts,
       user : {
-        username: 'Sultan',
-        lastname: 'Khan',
-        userid: '01',
-        usermail: 'sultan@testapimail.com',
-        usermobilenumber: '1234567890' 
+        userid: userId
       }
     };
 

@@ -1,3 +1,5 @@
+const Transaction = require('../modals/Transaction');
+
 require('dotenv').config();
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
@@ -32,35 +34,38 @@ const paymentController = async(req,res)=>{
 
     res.json({id:session.id});
 
-    // const transactionDetails = {
-    //     transaction_id: session.id,
-    //     transaction_amt:  session.amount_total,
-    //     transaction_txs: session.automatic_tax,
-    //     transaction_created: session.created,
-    //     payment_types: session.payment_method_types,
-    //     transaction_details: session.total_details,
-    //     user: products.user
-    // };
+    const transactionDetails = {
+        transaction_id: session.id,
+        transaction_amt:  session.amount_total,
+        transaction_txs: session.automatic_tax,
+        transaction_created: session.created,
+        payment_types: session.payment_method_types,
+        transaction_details: session.total_details,
+        user: products.user.userid,
+        course: realProducts[0].id
+    };
+
+    // console.log(transactionDetails);
 
     // console.log(session.status);
 
-    // if(session.status == 'open')
-    // {
+    if(session.status == 'open')
+    {
 
-    //     try
-    //     {
-    //         const dataToInsert = new  Transaction(transactionDetails);
-    //         const responseData = await dataToInsert.save();
+        try
+        {
+            const dataToInsert = new  Transaction(transactionDetails);
+            const responseData = await dataToInsert.save();
 
-    //         console.log(responseData);
-    //     }
-    //     catch(err)
-    //     {
-    //         console.log(err)
-    //     }
+            console.log(responseData);
+        }
+        catch(err)
+        {
+            console.log(err)
+        }
         
         
-    // };
+    };
  
 };
 

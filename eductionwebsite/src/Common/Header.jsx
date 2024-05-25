@@ -14,7 +14,7 @@ function Header() {
     const checkLogin = () => {
         let userData = Cookies.get('user');
 
-        console.log(userData);
+        // console.log(userData);
 
         if (userData) {
             setLoginauth(true)
@@ -39,7 +39,7 @@ function Header() {
 
     window.addEventListener("scroll", setstickheader);
 
-    console.log(stick)
+    // console.log(stick)
 
     return (
         <>

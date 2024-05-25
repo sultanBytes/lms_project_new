@@ -7,7 +7,14 @@ const transactionSchema = new mongoose.Schema({
     transaction_created: Number,
     payment_types: Object,
     transaction_details: Object,
-    user: Object
+    user: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'users'
+    },
+    course:{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'courses'
+    }
 });
 
 const Transaction = mongoose.model('transactions', transactionSchema);

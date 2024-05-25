@@ -3,11 +3,11 @@ const Admin = require('../modals/Admin');
 const Login = async (req,res)=>{
 
     const {username , password} = req.body;
-    // console.log(username,password);
+    console.log(username,password);
 
     try{
 
-        const userdata = await Admin.find({username : username});
+        const userdata = await Admin.find({user : username});
         // console.log(userdata[0].password);
 
         if(userdata.length === 0) {
