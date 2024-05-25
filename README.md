@@ -18,7 +18,7 @@ npm install
 
 
 Set up environment variables:
-Create a .env file in the root directory of your project and add the following variables:
+Create a .env file in the root directory Server folder of your project and add the following variables:
 
 
 PORT=
